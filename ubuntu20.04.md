@@ -25,7 +25,7 @@ printf 'user-db:user\nsystem-db:benigaslo' > /etc/dconf/profile/user
 
 Arxiu `/etc/dconf/db/benigaslo.d/00_benigaslo_settings`
 ```
-printf "[org/gnome/shell]\nfavorite-apps = ['firefox.desktop', 'nautilus.desktop']" > /etc/dconf/db/benigaslo.d/00_benigaslo_settings
+mkdir -p /etc/dconf/db/benigaslo.d/ && printf "[org/gnome/shell]\nfavorite-apps = ['firefox.desktop', 'nautilus.desktop']" > /etc/dconf/db/benigaslo.d/00_benigaslo_settings
 ```
 
 Després executar:
