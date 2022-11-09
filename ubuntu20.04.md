@@ -2,6 +2,11 @@
 
 A continuació es descriuen les modificacions que s'han fet a la instal·lació normal de Ubuntu 20.04
 
+## Instal·lar utils
+```
+apt install curl
+```
+
 ## Instal·lar clickControl
 
 ```
@@ -51,6 +56,6 @@ echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
 
 Copiar la clau pública
 ```
-sudo sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub >> /root/.ssh/authorized_keys'
+mkdir -p /root/.ssh && sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub >> /root/.ssh/authorized_keys'
 ```
 
