@@ -41,9 +41,11 @@ Després executar:
 dconf update; chmod a+rx -R /etc/dconf
 ```
 
-## Desativar la finestra de actualitzcions
+## Desactivar la finestra d'actualitzcions
 
-......
+```
+apt remove update-notifier
+```
 
 ## Permetre l'accés per ssh amb clau-pública
 ```
@@ -57,4 +59,5 @@ echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
 Copiar la clau pública
 ```
 sudo sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub >> /root/.ssh/authorized_keys'
+```
 
