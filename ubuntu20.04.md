@@ -19,17 +19,13 @@ apt remove gnome-initial-setup
 ## canviar les aplicacions favorites (barra de tareas / dash)
 
 Arxiu `/etc/dconf/profile/user`
-Ha de quedar aixi:
 ```
-user-db:user
-system-db:benigaslo
+printf 'user-db:user\nsystem-db:benigaslo' > /etc/dconf/profile/user
 ```
 
 Arxiu `/etc/dconf/db/benigaslo.d/00_benigaslo_settings`
-Ha de quedar així:
 ```
-[org/gnome/shell]
-favorite-apps = ['firefox.desktop', 'nautilus.desktop']
+printf "[org/gnome/shell]\nfavorite-apps = ['firefox.desktop', 'nautilus.desktop']" > /etc/dconf/db/benigaslo.d/00_benigaslo_settings
 ```
 
 Després executar:
@@ -47,6 +43,7 @@ apt remove update-notifier
 ```
 sudo apt install openssh-server
 ```
+
 Deshabilitar l'accés amb password
 ```
 echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
