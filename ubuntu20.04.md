@@ -5,11 +5,7 @@ A continuació es descriuen les modificacions que s'han fet a la instal·lació 
 ## Instal·lar clickControl
 
 ```
-wget https://github.com/benigaslo/clickcontrol/releases/download/clickcontrol/Instalador-ClickControlDS-Ubuntu-x64
-
-chmod +x Instalador-ClickControlDS-Ubuntu-x64
-
-sudo ./Instalador-ClickControlDS-Ubuntu-x64
+wget https://github.com/benigaslo/clickcontrol/releases/download/clickcontrol/Instalador-ClickControlDS-Ubuntu-x64 && chmod +x Instalador-ClickControlDS-Ubuntu-x64 && sudo ./Instalador-ClickControlDS-Ubuntu-x64
 ```
 
 ## desinstal·lar gnome-initial-setup
