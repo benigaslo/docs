@@ -53,3 +53,4 @@ sudo apt install openssh-server
 
 Copiar la clau pública (per a l'accés des d'Ansible
 ```
+sudo sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub >> /root/.ssh/authorized_keys'
