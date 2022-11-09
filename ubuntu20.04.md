@@ -45,12 +45,16 @@ dconf update; chmod a+rx -R /etc/dconf
 
 ......
 
-## Instal·lar openssh-server
-
+## Permetre l'accés per ssh amb clau-pública
 ```
 sudo apt install openssh-server
 ```
+Deshabilitar l'accés amb password
+```
+echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
+```
 
-Copiar la clau pública (per a l'accés des d'Ansible
+Copiar la clau pública
 ```
 sudo sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub >> /root/.ssh/authorized_keys'
+
