@@ -1,5 +1,5 @@
 apt update
-apt install curl openjdk-8-jre-headless openssh-server
+apt install -y curl openjdk-8-jre-headless openssh-server
 apt remove gnome-initial-setup update-notifier
 
 # canviar aplicacions favorites
