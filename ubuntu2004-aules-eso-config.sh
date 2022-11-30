@@ -13,7 +13,7 @@ dconf update; chmod a+rx -R /etc/dconf
 
 # configurar ssh
 echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
-mkdir -p /root/.ssh && sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub >> /root/.ssh/authorized_keys'
+mkdir -p /root/.ssh && sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub > /root/.ssh/authorized_keys'
 
 # instalar clickcontrol
 wget https://github.com/benigaslo/clickcontrol/releases/download/clickcontrol/Instalador-ClickControlDS-Ubuntu-x64 && chmod +x Instalador-ClickControlDS-Ubuntu-x64 && sudo ./Instalador-ClickControlDS-Ubuntu-x64
