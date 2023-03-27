@@ -59,3 +59,12 @@ Copiar la clau pública
 mkdir -p /root/.ssh && sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub >> /root/.ssh/authorized_keys'
 ```
 
+## Amagar la llista d'usuaris
+
+```
+printf 'user-db:user\nsystem-db:gdm\nfile-db:/usr/share/gdm/greeter-dconf-defaults' > /etc/dconf/profile/gdm
+
+mkdir -p /etc/dconf/db/gdm.d/ && printf '[org/gnome/login-screen]\ndisable-user-list=true' > /etc/dconf/db/gdm.d/00-login-screen
+
+dconf update; chmod a+rx -R /etc/dconf
+```
