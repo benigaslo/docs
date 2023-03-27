@@ -25,7 +25,6 @@ auth	requisite			pam_deny.so
 auth	required			pam_permit.so
 # and here are more per-package modules (the "Additional" block)
 #auth	optional	pam_mount.so 
-#auth    required                        pam_mkhomedir.so skel=/etc/skel umask=0077 
 #auth	optional	pam_exec.so /usr/bin/cdc_trigger_map
 auth	optional			pam_cap.so 
 #auth	required pam_listfile.so onerr=succeed item=group sense=deny file=/etc/lliurex-access-control/login.group.deny
