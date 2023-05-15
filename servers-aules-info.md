@@ -1,5 +1,7 @@
 # Bridge KVM
 
+/etc/netplan/00-kvm-bridges.yml
+```yaml
 network:
   version: 2
   renderer: networkd
@@ -16,3 +18,14 @@ network:
         forward-delay: 4
       dhcp4: no
       dhcp6: no
+```
+
+virt-manager VirtualNetwork
+```xml
+<network>
+  <name>br0</name>
+  <uuid>fe8277ba-458f-499f-8e30-ce05201fc6e2</uuid>
+  <forward mode="bridge"/>
+  <bridge name="br0"/>
+</network>
+```
