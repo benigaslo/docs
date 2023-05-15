@@ -29,3 +29,16 @@ virt-manager VirtualNetwork
   <bridge name="br0"/>
 </network>
 ```
+
+/etc/dhcp/dhcpd.conf
+```
+subnet 10.10.10.0 netmask 255.255.255.0{
+    option subnet-mask 255.255.255.0;
+    range dynamic-bootp 10.10.10.10 10.10.10.254;
+    default-lease-time 21600;
+    max-lease-time 43200;
+    option routers 192.168.100.1;
+    option domain-name-servers 127.0.0.53;
+    next-server 10.10.10.10;
+}
+```
