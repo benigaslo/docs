@@ -1,4 +1,6 @@
-# Bridge KVM
+# server fog
+
+## BRIDGE KvM
 
 /etc/netplan/00-kvm-bridges.yml
 ```yaml
@@ -62,3 +64,14 @@ br_netfilter
 bind-interfaces
 except-interface=virbr0
 ```
+
+## Ipxe
+??? /etc/dhcp/dhcpd.conf
+```
+filename "ipxe.efi";
+```
+
+
+## CLIENT KVM
+
+![Firmware](KVM.png)
