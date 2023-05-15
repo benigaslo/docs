@@ -32,6 +32,7 @@ virt-manager VirtualNetwork
 
 /etc/dhcp/dhcpd.conf
 ```
+...
 subnet 10.10.10.0 netmask 255.255.255.0{
     option subnet-mask 255.255.255.0;
     range dynamic-bootp 10.10.10.10 10.10.10.254;
@@ -41,4 +42,23 @@ subnet 10.10.10.0 netmask 255.255.255.0{
     option domain-name-servers 127.0.0.53;
     next-server 10.10.10.10;
 }
+...
+```
+
+/etc/sysctl.d/99-netfilter-bridge.conf
+```
+net.bridge.bridge-nf-call-ip6tables = 0
+net.bridge.bridge-nf-call-iptables = 0
+net.bridge.bridge-nf-call-arptables = 0
+```
+
+/etc/modules-load.d/br_netfilter.conf
+```
+br_netfilter
+```
+
+/etc/dnsmasq.d/libvirt-daemon
+```
+bind-interfaces
+except-interface=virbr0
 ```
