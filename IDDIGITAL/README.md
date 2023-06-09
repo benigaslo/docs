@@ -3,6 +3,9 @@ Identitat Digital en Ubuntu 22.04
 ```
 apt install sssd libpam-ldap  libpam-modules
 ```
+```
+apt install libpam-mount
+```
 
 `/etc/sssd/sssd.conf`
 
