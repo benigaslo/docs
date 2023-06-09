@@ -15,3 +15,5 @@ chmod 600 /etc/sssd/sssd.conf
 `/etc/pam.d/common-session`
 
 `/usr/share/pam-configs/ldap`
+
+`/usr/share/pam-configs/sss
