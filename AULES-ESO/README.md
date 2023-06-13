@@ -1,4 +1,4 @@
-# Ubuntu 20.04 als ordinadors de aules de la ESO, Sala de profes, etc.
+# Ubuntu 20.04 als ordinadors de aules de la ESO, Batx, Sala de profes, etc.
 
 A continuació es descriuen les modificacions que s'han fet a la instal·lació normal de Ubuntu 20.04
 
