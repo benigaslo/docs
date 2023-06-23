@@ -10,3 +10,4 @@
     - canviar la red default
       "encara no va"
 1. instalar virtualbox
+1. ubuntu-restricted-extras
