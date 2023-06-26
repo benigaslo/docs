@@ -12,3 +12,5 @@
 1. instalar virtualbox
 1. ubuntu-restricted-extras
     - bug: sudo apt remove gstreamer1.0-vaapi
+1. vscode, intellij i gimp
+1. iddigital
