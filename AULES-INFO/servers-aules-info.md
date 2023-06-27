@@ -12,7 +12,8 @@
 1. vscode, intellij, chromium, vlc, gimp
 1. iddigital
 1. packettracer
-
+1. SETTINGS (QUE HA PASSAT??)
+    - apt install gnome-control-center
 
 ## Server only
 1. `apt install isc-dhcp-server`
