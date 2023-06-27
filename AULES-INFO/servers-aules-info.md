@@ -16,4 +16,17 @@
 
 ## Server only
 1. `apt install isc-dhcp-server`
-    - copiar dhcpd.conf
+    - copiar `dhcpd.conf`
+1. netplan
+    ```
+    network:
+      version: 2
+      renderer: networkd
+      ethernets:
+        enp1s0:
+          dhcp4: no
+          addresses: [10.2.1.254/24]
+        eno1:
+          dhcp4: yes
+    ```
+1. `iptables -t nat -A POSTROUTING -o eno1 -j MASQUERADE`
