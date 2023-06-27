@@ -29,4 +29,12 @@
         eno1:
           dhcp4: yes
     ```
-1. `iptables -t nat -A POSTROUTING -o eno1 -j MASQUERADE`
+1. iptables
+    - nat
+        `iptables -t nat -A POSTROUTING -o eno1 -j MASQUERADE`
+        `echo "1" > /proc/sys/net/ipv4/ip_forward`
+    - policy  FORWARD ACCEPT
+        `iptables -P FORWARD ACCEPT`
+    - TFTP through nat
+        `modprobe nf_nat_tftp`
+        `iptables -t raw -I PREROUTING -j CT -p udp -m udp --dport 69 --helper tftp`      
