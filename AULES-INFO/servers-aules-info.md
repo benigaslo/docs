@@ -12,3 +12,8 @@
 1. vscode, intellij, chromium, vlc, gimp
 1. iddigital
 1. packettracer
+
+
+## Server only
+1. `apt install isc-dhcp-server`
+    - copiar dhcpd.conf
