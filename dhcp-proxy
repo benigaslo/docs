@@ -1,36 +1,57 @@
 # /etc/dnsmasq.d/dhcp-proxy
 
-port=0
+# DNS
+bind-interfaces
+domain-needed
+bogus-priv
+strict-order
+expand-hosts
+no-hosts
+#addn-hosts=/var/lib/dnsmasq/hosts
+#domain=aula1
+#local=/aula1/
+#address=/preseed/mirror/proxy/server/10.2.1.254
+server=10.239.3.7
+server=10.239.3.8
 
-log-dhcp
 
-tftp-root=/tftpboot
+# DHCP
+interface=enp1s0
+dhcp-authoritative
+dhcp-ignore-names
+dhcp-option=option:router,0.0.0.0
+dhcp-option=option:dns-server,10.2.1.254
+dhcp-option=66,172.21.44.254
+#dhcp-option=option:domain-name,aula1
+#dhcp-option=option:domain-search,aula1
+dhcp-range=10.2.1.100,10.2.1.199,12h
+#dhcp-range=172.21.44.254,proxy
 
-dhcp-boot=undionly.kpxe,,192.168.100.254
+#log-dhcp
+#tftp-root=/tftpboot
+dhcp-boot=undionly.kpxe,,172.21.44.254
 
-# Disable re-use of the DHCP servername and filename fields as extra
-# option space. That's to avoid confusing some old or broken DHCP clients.
 dhcp-no-override
 
-# inspect the vendor class string and match the text to set the tag
 dhcp-vendorclass=BIOS,PXEClient:Arch:00000
 dhcp-vendorclass=UEFI32,PXEClient:Arch:00006
 dhcp-vendorclass=UEFI,PXEClient:Arch:00007
 dhcp-vendorclass=UEFI64,PXEClient:Arch:00009
 
-# Set the boot file name based on the matching tag from the vendor class (above)
-dhcp-boot=net:UEFI32,i386-efi/ipxe.efi,,192.168.100.254
-dhcp-boot=net:UEFI,ipxe.efi,,192.168.100.254
-dhcp-boot=net:UEFI64,ipxe.efi,,192.168.100.254
+dhcp-boot=net:UEFI32,i386-efi/ipxe.efi,,172.21.44.254
+dhcp-boot=net:UEFI,ipxe.efi,,172.21.44.254
+dhcp-boot=net:UEFI64,ipxe.efi,,172.21.44.254
 
-# PXE menu.  The first part is the text displayed to the user.  The second is the timeout, in seconds.
 pxe-prompt="Booting FOG Client", 1
 
-# The known types are x86PC, PC98, IA64_EFI, Alpha, Arc_x86,
-# Intel_Lean_Client, IA32_EFI, BC_EFI, Xscale_EFI and X86-64_EFI
-# This option is first and will be the default if there is no input from the user.
-pxe-service=X86PC, "Boot to FOG", undionly.kpxe
-pxe-service=X86-64_EFI, "Boot to FOG UEFI", ipxe.efi
-pxe-service=BC_EFI, "Boot to FOG UEFI PXE-BC", ipxe.efi
+pxe-service=X86PC, "Boot to FOG", undionly.kpxe,172.21.44.254
+pxe-service=X86-64_EFI, "Boot to FOG UEFI", ipxe.efi,172.21.44.254
+pxe-service=BC_EFI, "Boot to FOG UEFI PXE-BC", ipxe.efi,172.21.44.254
 
-dhcp-range=192.168.100.254,proxy
+
+
+
+# CONF DIRS
+
+conf-dir=/etc/dnsmasq.d/
+
