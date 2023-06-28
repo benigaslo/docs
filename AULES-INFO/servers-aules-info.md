@@ -1,4 +1,4 @@
-1. ssh
+ 1. ssh
     - copiar la clau publica
     - desactivar el password login
 1. instalar client fog
@@ -31,11 +31,14 @@
           dhcp4: yes
     ```
 1. iptables
+    - ip_forward
+        -  `printf "net.ipv4.ip_forward = 1" >> /etc/systctl.conf`
+    - `apt install iptables-persistent`
     - nat
         `iptables -t nat -A POSTROUTING -o eno1 -j MASQUERADE`
-        `echo "1" > /proc/sys/net/ipv4/ip_forward`
-    - policy  FORWARD ACCEPT
         `iptables -P FORWARD ACCEPT`
     - TFTP through nat
-        `modprobe nf_nat_tftp`
-        `iptables -t raw -I PREROUTING -j CT -p udp -m udp --dport 69 --helper tftp`      
+        - `printf "nf_nat_tftp" >> /etc/modules-load.d/modules.conf`
+        - `iptables -t raw -I PREROUTING -j CT -p udp -m udp --dport 69 --helper tftp`
+    - Guardar les regles:
+        `iptables-save > /etc/iptables/rules.v4`
