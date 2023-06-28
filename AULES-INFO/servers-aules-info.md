@@ -16,8 +16,8 @@
     - `apt install gnome-control-center`
 
 ## Server only
-1. `apt install isc-dhcp-server`
-    - copiar `dhcpd.conf`
+1. `apt install dnsmasq`
+    - copiar `dnsmasq.conf`
 1. netplan
     ```
     network:
