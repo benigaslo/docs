@@ -15,7 +15,8 @@
 1. SETTINGS (QUE HA PASSAT??)
     - `apt install gnome-control-center`
 
-1.`apt install xdg-desktop-portal xdg-desktop-portal-gtk`
+1. BUG guardar-como firefox
+    - `apt install xdg-desktop-portal xdg-desktop-portal-gtk`
 
 ## Server only
 1. `apt install dnsmasq`
