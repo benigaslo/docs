@@ -19,7 +19,11 @@
 
 1. BUG guardar-como firefox
     - `apt install xdg-desktop-portal xdg-desktop-portal-gtk`
-1. apt install nmap
+1. `apt install nmap`
+1. Node_18x
+   `curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh`
+   `bash nodesource_setup.sh`
+   `apt install nodejs` 
 
 ## Server only
 1. `apt install dnsmasq`
