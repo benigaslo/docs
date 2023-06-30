@@ -1,4 +1,4 @@
- 1. ssh
+1. ssh
     - copiar la clau publica
     - desactivar el password login
 1. instalar client fog
@@ -14,7 +14,8 @@
 1. packettracer
 1. SETTINGS (QUE HA PASSAT??)
     - `apt install gnome-control-center`
-
+1. `apt remove gnome-initial-setup update-notifier`
+ 
 
 1. BUG guardar-como firefox
     - `apt install xdg-desktop-portal xdg-desktop-portal-gtk`
