@@ -38,7 +38,6 @@ no-hosts
 server=10.239.3.7
 server=10.239.3.8
 
-
 interface=$LOCAL_IFACE
 dhcp-authoritative
 dhcp-ignore-names
