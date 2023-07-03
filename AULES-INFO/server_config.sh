@@ -64,6 +64,26 @@ pxe-service=BC_EFI, "Boot to FOG UEFI PXE-BC", ipxe.efi,172.21.44.254
 conf-dir=/etc/dnsmasq.d/
 EOF
 
+cat << EOF > /lib/systemd/system/dnsmasq.service
+[Unit]
+Description=dnsmasq - A lightweight DHCP and caching DNS server
+Requires=network-online.target
+Wants=nss-lookup.target
+Before=nss-lookup.target
+After=network-online.target
+
+[Service]
+Type=forking
+PIDFile=/run/dnsmasq/dnsmasq.pid
+ExecStartPre=/etc/init.d/dnsmasq checkconfig
+ExecStart=/etc/init.d/dnsmasq systemd-exec
+ExecStartPost=/etc/init.d/dnsmasq systemd-start-resolvconf
+ExecStop=/etc/init.d/dnsmasq systemd-stop-resolvconf
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+EOF
 
 ############## CONFIG NETPLAN
 
