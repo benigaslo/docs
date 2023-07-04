@@ -63,6 +63,8 @@ pxe-service=BC_EFI, "Boot to FOG UEFI PXE-BC", ipxe.efi,172.21.44.254
 conf-dir=/etc/dnsmasq.d/
 EOF
 
+# Esperar a que la xarxa estiga online per a iniciar dnsmasq
+
 cat << EOF > /lib/systemd/system/dnsmasq.service
 [Unit]
 Description=dnsmasq - A lightweight DHCP and caching DNS server
@@ -107,9 +109,9 @@ printf "net.ipv4.ip_forward = 1" >> /etc/systctl.conf
 iptables -t nat -A POSTROUTING -o $INTER_IFACE -j MASQUERADE
 iptables -P FORWARD ACCEPT
 
+# NATejar el TFTP
 sed -i "/nf_nat_tftp/d" /etc/modules-load.d/modules.conf
 printf "nf_nat_tftp" >> /etc/modules-load.d/modules.conf
-
 iptables -t raw -I PREROUTING -j CT -p udp -m udp --dport 69 --helper tftp
 
 apt install iptables-persistent
