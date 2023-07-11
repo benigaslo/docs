@@ -23,7 +23,9 @@
 1. Node_18x
    `curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh`
    `bash nodesource_setup.sh`
-   `apt install nodejs` 
+   `apt install nodejs`
+
+1. apt install wireshark
 
 ## Server only
 1. `apt install dnsmasq`
