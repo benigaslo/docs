@@ -91,7 +91,7 @@ EOF
 cat << EOF > /etc/netplan/01-network-manager-all.yaml
 network:
   version: 2
-  renderer: networkd
+  renderer: NetworkManager
   ethernets:
     $LOCAL_IFACE:
       dhcp4: no
