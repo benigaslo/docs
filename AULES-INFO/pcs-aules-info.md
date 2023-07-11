@@ -34,7 +34,7 @@
     ```
     network:
       version: 2
-      renderer: networkd
+      renderer: NetworkManager
       ethernets:
         enp1s0:
           dhcp4: no
