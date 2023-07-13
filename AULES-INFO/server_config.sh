@@ -107,9 +107,10 @@ sed -i "/ip_forward/d" /etc/sysctl.conf
 printf "net.ipv4.ip_forward = 1" >> /etc/systctl.conf
 
 iptables -t nat -A POSTROUTING -o $INTER_IFACE -j MASQUERADE
-iptables -P FORWARD ACCEPT
+iptables -A FORWARD -j ACCEPT
 
 # NATejar el TFTP
+modprobe nf_nat_tftp
 sed -i "/nf_nat_tftp/d" /etc/modules-load.d/modules.conf
 printf "nf_nat_tftp" >> /etc/modules-load.d/modules.conf
 iptables -t raw -I PREROUTING -j CT -p udp -m udp --dport 69 --helper tftp
