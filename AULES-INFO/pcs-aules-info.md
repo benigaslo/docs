@@ -28,29 +28,5 @@
 1. apt install wireshark
 
 ## Server only
-1. `apt install dnsmasq`
-    - copiar `dnsmasq.conf`
-1. netplan
-    ```
-    network:
-      version: 2
-      renderer: NetworkManager
-      ethernets:
-        enp1s0:
-          dhcp4: no
-          addresses: [10.2.1.254/24]
-        eno1:
-          dhcp4: yes
-    ```
-1. iptables
-    - ip_forward
-        -  `printf "net.ipv4.ip_forward = 1" >> /etc/systctl.conf`
-    - `apt install iptables-persistent`
-    - nat
-        `iptables -t nat -A POSTROUTING -o eno1 -j MASQUERADE`
-        `iptables -P FORWARD ACCEPT`
-    - TFTP through nat
-        - `printf "nf_nat_tftp" >> /etc/modules-load.d/modules.conf`
-        - `iptables -t raw -I PREROUTING -j CT -p udp -m udp --dport 69 --helper tftp`
-    - Guardar les regles:
-        `iptables-save > /etc/iptables/rules.v4`
+
+executar script `server_config.sh`
