@@ -5,7 +5,7 @@
 1. instalar docker
     - falta mirar lo de posar als alumnes al grup docker -> no fa falta(pareix) nomes executar
       `dockerd-rootless-setuptool.sh install`
-    - canviar la red default
+    - canviar la red default `/etc/docker/daemon.json`
 1. instalar virtualbox
 1. ubuntu-restricted-extras
     - bug: sudo apt remove gstreamer1.0-vaapi
