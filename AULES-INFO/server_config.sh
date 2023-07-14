@@ -18,11 +18,11 @@ do
     read LOCAL_IFACE
 done
 
-while [[ -z $HOSTNAME ]] 
-do
-    echo "Hostname:"
-    read HOSTNAME
-done
+#while [[ -z $HOSTNAME ]] 
+#do
+#    echo "Hostname:"
+#    read HOSTNAME
+#done
 
 ######## CONFIG DNSMASQ
 
@@ -100,6 +100,10 @@ network:
       dhcp4: yes
 EOF
 
+netplan apply
+sleep 10
+systemctl daemon-reload
+systemctl restart dnsmasq
 
 ############# CONFIG ROUTER
 
