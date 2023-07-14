@@ -30,3 +30,4 @@
 ## Server only
 
 executar script `server_config.sh`
+`bash -c "$(curl -fsSL https://raw.githubusercontent.com/benigaslo/docs/main/AULES-INFO/server_config.sh)"`
