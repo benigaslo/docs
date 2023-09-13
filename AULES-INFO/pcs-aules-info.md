@@ -6,7 +6,9 @@
     - falta mirar lo de posar als alumnes al grup docker -> no fa falta(pareix) nomes executar
       
       `dockerd-rootless-setuptool.sh install`
+      
       `sudo setcap cap_net_bind_service=ep $(which rootlesskit)`
+
       `systemctl --user restart docker`
       
     - canviar la red default `/etc/docker/daemon.json`
