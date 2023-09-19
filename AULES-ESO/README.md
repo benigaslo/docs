@@ -68,3 +68,11 @@ mkdir -p /etc/dconf/db/gdm.d/ && printf '[org/gnome/login-screen]\ndisable-user-
 
 dconf update; chmod a+rx -R /etc/dconf
 ```
+
+## Deshabilitar el "canviar usuari"
+
+```
+printf '\n[org/gnome/desktop/lockdown]\ndisable-user-switching=true\n' > /etc/dconf/db/benigaslo.d/00_benigaslo_settings
+
+dconf update
+```
