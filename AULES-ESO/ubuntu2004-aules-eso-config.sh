@@ -1,6 +1,7 @@
 apt update
-apt install -y curl openssh-server
-apt remove gnome-initial-setup update-notifier
+apt install -y curl openssh-server ubuntu-restricted-extras vlc chromium-browser gimp inkscape libdvd-pkg
+apt install -y $(check-language-support)
+apt remove gnome-initial-setup update-notifier thunderbird
 
 #
 # canviar aplicacions favorites
