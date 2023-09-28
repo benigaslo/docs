@@ -77,7 +77,9 @@ printf '\n[org/gnome/desktop/lockdown]\ndisable-user-switching=true\n' > /etc/dc
 dconf update
 ```
 
-## Deshabilitar bloqueig (suspender)
+## Deshabilitar bloqueig usuari
 ```
 gsettings set org.gnome.desktop.lockdown disable-lock-screen true
 ```
+
+## Llevar el boto de "Atura temporalment"
