@@ -82,4 +82,7 @@ dconf update
 gsettings set org.gnome.desktop.lockdown disable-lock-screen true
 ```
 
-## Llevar el boto de "Atura temporalment"
+## Deshabilitar el "Atura temporalment"
+```
+systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
