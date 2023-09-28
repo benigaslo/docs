@@ -13,6 +13,12 @@ apt install curl
 wget https://github.com/benigaslo/clickcontrol/releases/download/clickcontrol/Instalador-ClickControlDS-Ubuntu-x64 && chmod +x Instalador-ClickControlDS-Ubuntu-x64 && sudo ./Instalador-ClickControlDS-Ubuntu-x64
 ```
 
+server ip: 192.168.1.250
+
+tot default
+
+Configuracion de PAM: tot menos el fingerprint
+
 ## desinstal·lar gnome-initial-setup
 
 Eliminar lo de setup accounts, livepatch, ...
@@ -85,4 +91,10 @@ gsettings set org.gnome.desktop.lockdown disable-lock-screen true
 ## Deshabilitar el "Atura temporalment"
 ```
 systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
+
+
+## Llevar POP session
+```
+rm /usr/share/xsessions/pop.desktop
 ```
