@@ -76,3 +76,8 @@ printf '\n[org/gnome/desktop/lockdown]\ndisable-user-switching=true\n' > /etc/dc
 
 dconf update
 ```
+
+## Deshabilitar bloqueig (suspender)
+```
+gsettings set org.gnome.desktop.lockdown disable-lock-screen true
+```
