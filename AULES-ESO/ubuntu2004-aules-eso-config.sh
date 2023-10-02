@@ -38,6 +38,7 @@ mkdir -p /etc/dconf/db/gdm.d/
 cat << EOF > /etc/dconf/db/gdm.d/00-login-screen
 [org/gnome/login-screen]
 disable-user-list=true
+logo='/usr/share/pixmaps/logo/logo.svg'
 EOF
 
 dconf update 
