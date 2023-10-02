@@ -162,6 +162,18 @@ krb5_ccname_template = FILE:%d/krb5cc_%U_XXXXXX
 krb5_auth_timeout = 30
 EOF
 
+cat << EOF > /etc/pam.d/common-session
+session	[default=1]	pam_permit.so
+session	requisite	pam_deny.so
+session	required	pam_permit.so
+session optional	pam_umask.so
+session	required	pam_unix.so 
+session required pam_mkhomedir.so skel=/etc/skel umask=0077
+session	optional	pam_sss.so 
+session	optional	pam_systemd.so 
+EOF
+
+
 # instalar clickcontrol
 # wget https://github.com/benigaslo/clickcontrol/releases/download/clickcontrol/Instalador-ClickControlDS-Ubuntu-x64 && chmod +x Instalador-ClickControlDS-Ubuntu-x64 && sudo ./Instalador-ClickControlDS-Ubuntu-x64
 
