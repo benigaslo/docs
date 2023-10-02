@@ -11,7 +11,7 @@ apt remove gnome-initial-setup update-notifier thunderbird
 #
 cat << EOF > /etc/dconf/profile/user
 user-db:user
-system-db:benigaslo'
+system-db:benigaslo
 EOF
 
 mkdir -p /etc/dconf/db/benigaslo.d/ 
