@@ -1,5 +1,5 @@
 apt update
-apt install -y curl openssh-server ubuntu-restricted-extras vlc chromium-browser gimp inkscape libdvd-pkg
+apt install -y curl openssh-server nmap ubuntu-restricted-extras vlc chromium-browser gimp inkscape libdvd-pkg
 apt install -y $(check-language-support)
 dpkg-reconfigure libdvd-pkg
 apt remove gnome-initial-setup update-notifier thunderbird
