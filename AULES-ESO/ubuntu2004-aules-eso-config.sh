@@ -59,7 +59,7 @@ sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id
 #
 # Configurar IDDigital
 #
-apt install -y sssd libpam-ldap  libpam-modules
+apt install -y sssd libpam-ldap  libpam-modules  libpam-mount
 
 touch /etc/sssd/sssd.conf
 chmod 600 /etc/sssd/sssd.conf
