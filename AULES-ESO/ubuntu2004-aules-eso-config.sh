@@ -10,7 +10,8 @@ apt remove gnome-initial-setup update-notifier thunderbird
 # deshabilitar bloqueig de pantalla
 #
 cat << EOF > /etc/dconf/profile/user
-user-db:user\nsystem-db:benigaslo'
+user-db:user
+system-db:benigaslo'
 EOF
 
 mkdir -p /etc/dconf/db/benigaslo.d/ 
