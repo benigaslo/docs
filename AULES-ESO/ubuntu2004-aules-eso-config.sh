@@ -164,6 +164,15 @@ krb5_ccname_template = FILE:%d/krb5cc_%U_XXXXXX
 krb5_auth_timeout = 30
 EOF
 
+cat << EOF > /etc/pam.d/common-auth
+auth	[success=3 default=ignore]	pam_unix.so nullok
+auth	[success=2 default=ignore]	pam_sss.so use_first_pass
+auth	[success=1 default=ignore]	pam_ldap.so use_first_pass
+auth	requisite			pam_deny.so
+auth	required			pam_permit.so
+auth	optional			pam_cap.so 
+EOF
+
 cat << EOF > /etc/pam.d/common-session
 session	[default=1]	pam_permit.so
 session	requisite	pam_deny.so
