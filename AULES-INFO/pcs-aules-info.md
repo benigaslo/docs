@@ -66,49 +66,18 @@ session required        pam_python.so /root/pam_slo.py
 
 /root/pam_slo.py
 ```
-DEFAULT_USER    = "nobody"
-
-def pam_sm_authenticate(pamh, flags, argv):
-  try:
-    user = pamh.get_user(None)
-  except pamh.exception as e:
-    return e.pam_result
-  if user == None:
-    pam.user = DEFAULT_USER
-  return pamh.PAM_SUCCESS
-
-def pam_sm_setcred(pamh, flags, argv):
-  return pamh.PAM_SUCCESS
-
-def pam_sm_acct_mgmt(pamh, flags, argv):
-  return pamh.PAM_SUCCESS
-
 def pam_sm_open_session(pamh, flags, argv):
-  print "DBGG"
   user=pamh.get_user(None)
-  print "DB2"
-  upsert_str("/tmp/pamslo.txt", "%s:100000:65536\n" % user)
-  print("Hello %s" % user)
+  require_line("/etc/subuid", "%s:100000:65536\n" % user)
+  require_line("/etc/subgid", "%s:100000:65536\n" % user)
   return pamh.PAM_SUCCESS
 
-def pam_sm_close_session(pamh, flags, argv):
-  return pamh.PAM_SUCCESS
-
-def pam_sm_chauthtok(pamh, flags, argv):
-  return pamh.PAM_SUCCESS
-
-
-
-def upsert_str(file_path, word):
-  print "DB3"
+def require_line(file_path, word):
   found=False
   with open(file_path, "r") as file:
-    print "DB5"
     content = file.read()
     if word in content:
       found=True
-
-  print "DB4"
 
   if not found:
     with open(file_path, 'a') as file:
