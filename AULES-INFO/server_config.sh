@@ -121,3 +121,9 @@ iptables -t raw -I PREROUTING -j CT -p udp -m udp --dport 69 --helper tftp
 
 apt install iptables-persistent
 iptables-save > /etc/iptables/rules.v4
+
+# Drivers realtek
+apt install -y r8168-dkms
+sed -i "/blacklist r8169/d" /etc/modprobe.d/blacklist.conf
+printf "blacklist r8169\n" >> /etc/modprobe.d/blacklist.conf
+update-initramfs -u 
