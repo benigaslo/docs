@@ -33,22 +33,6 @@
 
 1. apt install wireshark
 
-## Server only
-
-executar script `server_config.sh`
-`bash -c "$(curl -fsSL https://raw.githubusercontent.com/benigaslo/docs/main/AULES-INFO/server_config.sh)"`
-
-
-# Drivers realtek
-El driver r8169 (in-kernel) falla, s'ha d'instal·lar el r8168:
-```
-apt install r8168-dkms
-printf "blacklist r8169" > /etc/modprobe.d/blacklist.conf
-update-initramfs -u 
-```
-
-
-
 # Docker rootless
 Se te que afegir el usuari al fichero /etc/subuid i /etc/subgid
 
@@ -83,3 +67,22 @@ def require_line(file_path, word):
     with open(file_path, 'a') as file:
       file.write(word)
 ```
+
+
+## Server only
+
+executar script `server_config.sh`
+
+`bash -c "$(curl -fsSL https://raw.githubusercontent.com/benigaslo/docs/main/AULES-INFO/server_config.sh)"`
+
+
+# Drivers realtek
+El driver r8169 (in-kernel) falla, s'ha d'instal·lar el r8168:
+```
+apt install r8168-dkms
+printf "blacklist r8169" > /etc/modprobe.d/blacklist.conf
+update-initramfs -u 
+```
+
+
+
