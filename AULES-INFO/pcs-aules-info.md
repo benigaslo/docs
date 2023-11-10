@@ -33,7 +33,7 @@
 
 1. apt install wireshark
 
-# Docker rootless
+## Docker rootless
 Se te que afegir el usuari al fichero /etc/subuid i /etc/subgid
 
 Se podria fer en un modul pam, que l'afegisca quan se inicie la sessio
@@ -69,14 +69,14 @@ def require_line(file_path, word):
 ```
 
 
-## Server only
+# Server only
 
 executar script `server_config.sh`
 
 `bash -c "$(curl -fsSL https://raw.githubusercontent.com/benigaslo/docs/main/AULES-INFO/server_config.sh)"`
 
 
-# Drivers realtek
+## Drivers realtek
 El driver r8169 (in-kernel) falla, s'ha d'instal·lar el r8168:
 ```
 apt install r8168-dkms
