@@ -11,7 +11,7 @@
 1. vscode, intellij, chromium, vlc, gimp
 1. iddigital
 1. packettracer
-1. SETTINGS (QUE HA PASSAT??)
+1. Instalar SETTINGS
    
         sudo apt install gnome-control-center
    
@@ -97,16 +97,8 @@
 
 executar script `server_config.sh`
 
-`bash -c "$(curl -fsSL https://raw.githubusercontent.com/benigaslo/docs/main/AULES-INFO/server_config.sh)"`
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/benigaslo/docs/main/AULES-INFO/server_config.sh)"
 
-
-## Drivers realtek
-El driver r8169 (in-kernel) falla, s'ha d'instal·lar el r8168:
-```
-apt install r8168-dkms
-printf "blacklist r8169" > /etc/modprobe.d/blacklist.conf
-update-initramfs -u 
-```
 
 
 
