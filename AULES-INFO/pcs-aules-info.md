@@ -2,15 +2,13 @@
     - copiar la clau publica
     - desactivar el password login
 1. instalar client fog
-1. instalar virtualbox
+1. instalar virtualbox, vscode, intellij, chromium, vlc, gimp, dia, kdenlive, audacity, packettracer
 1. ubuntu-restricted-extras
     - bug:
 
           sudo apt remove gstreamer1.0-vaapi
       
-1. vscode, intellij, chromium, vlc, gimp
 1. iddigital
-1. packettracer
 1. Instalar SETTINGS
    
         sudo apt install gnome-control-center
@@ -36,10 +34,18 @@
 
 1. apt install wireshark
 2. Epoptes
-    ```
-    sudo sed -i 's/#WaylandEnable=false/WaylandEnable=false/g' /etc/gdm3/custom.conf
-    sudo apt install -y epoptes-client ssvnc
-    ```
+   - Server
+
+         sudo sed -i 's/#WaylandEnable=false/WaylandEnable=false/g' /etc/gdm3/custom.conf
+         sudo apt install -y epoptes ssvnc
+         sudo adduser pro epoptes
+     
+    - Client
+
+          sudo sed -i 's/#WaylandEnable=false/WaylandEnable=false/g' /etc/gdm3/custom.conf
+          sudo apt install -y epoptes-client ssvnc
+          sudo epoptes-client -c
+   
 
 ## Docker
 - canviar la red default `/etc/docker/daemon.json`
