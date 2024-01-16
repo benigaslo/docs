@@ -1,3 +1,7 @@
+1. Desactivar actualitzacions automatiques "snap"
+
+        sudo snap refresh --hold
+
 1. ssh
     - copiar la clau publica
     - desactivar el password login
