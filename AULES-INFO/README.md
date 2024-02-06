@@ -19,12 +19,12 @@
    
 1. Desinstalar:
 
-        apt remove gnome-initial-setup update-notifier
+        sudo apt remove gnome-initial-setup update-notifier
  
 
 1. BUG guardar-como firefox
    
-        apt install xdg-desktop-portal xdg-desktop-portal-gtk
+        sudo apt install xdg-desktop-portal xdg-desktop-portal-gtk
    
 1. Instalar nmap, etccc
 
@@ -68,7 +68,7 @@
     
         - Instalar esto:
         ```
-        apt install libpam-python
+        sudo apt install libpam-python
         ```
     
         - Afegir esta linea al fichero `/etc/pam.d/common-session`
