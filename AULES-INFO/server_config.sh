@@ -81,6 +81,8 @@ ExecStart=/etc/init.d/dnsmasq systemd-exec
 ExecStartPost=/etc/init.d/dnsmasq systemd-start-resolvconf
 ExecStop=/etc/init.d/dnsmasq systemd-stop-resolvconf
 ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target
