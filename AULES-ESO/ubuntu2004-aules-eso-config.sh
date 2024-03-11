@@ -4,6 +4,8 @@ apt install -y $(check-language-support)
 dpkg-reconfigure libdvd-pkg
 apt remove gnome-initial-setup update-notifier thunderbird
 
+sh -c 'curl -fsSL  https://raw.githubusercontent.com/benigaslo/disseny/master/logo_u.svg > /usr/share/pixmaps/logo/logo.svg'
+
 #
 # canviar aplicacions favorites
 # deshabilitar canviar d'usuari
