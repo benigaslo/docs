@@ -4,6 +4,7 @@ apt install -y $(check-language-support)
 dpkg-reconfigure libdvd-pkg
 apt remove gnome-initial-setup update-notifier thunderbird
 
+mkdir -p /usr/share/pixmaps/logo/
 sh -c 'curl -fsSL  https://raw.githubusercontent.com/benigaslo/disseny/master/logo_u.svg > /usr/share/pixmaps/logo/logo.svg'
 
 #
