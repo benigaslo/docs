@@ -65,7 +65,8 @@ sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id
 #
 # Configurar IDDigital
 #
-apt install -y sssd libpam-ldap  libpam-modules  libpam-mount
+# apt install -y sssd libpam-ldap  libpam-modules  libpam-mount
+apt install -y sssd
 
 touch /etc/sssd/sssd.conf
 chmod 600 /etc/sssd/sssd.conf
@@ -170,7 +171,7 @@ EOF
 cat << EOF > /etc/pam.d/common-auth
 auth	[success=3 default=ignore]	pam_unix.so nullok
 auth	[success=2 default=ignore]	pam_sss.so use_first_pass
-auth	[success=1 default=ignore]	pam_ldap.so use_first_pass
+#auth	[success=1 default=ignore]	pam_ldap.so use_first_pass
 auth	requisite			pam_deny.so
 auth	required			pam_permit.so
 auth	optional			pam_cap.so 
@@ -187,6 +188,22 @@ session	optional	pam_sss.so
 session	optional	pam_systemd.so 
 EOF
 
+## Comprovar /etc/nsswitch.conf
+passwd:         files systemd sss
+group:          files systemd sss
+shadow:         files sss
+gshadow:        files
+
+hosts:          files mdns4_minimal [NOTFOUND=return] dns
+networks:       files
+
+protocols:      db files
+services:       db files sss
+ethers:         db files
+rpc:            db files
+
+netgroup:       nis sss
+automount:      sss
 
 # instalar clickcontrol
 # wget https://github.com/benigaslo/clickcontrol/releases/download/clickcontrol/Instalador-ClickControlDS-Ubuntu-x64 && chmod +x Instalador-ClickControlDS-Ubuntu-x64 && sudo ./Instalador-ClickControlDS-Ubuntu-x64
