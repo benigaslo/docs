@@ -189,6 +189,7 @@ session	optional	pam_systemd.so
 EOF
 
 ## Comprovar /etc/nsswitch.conf
+cat << EOF > /etc/nsswitch.conf
 passwd:         files systemd sss
 group:          files systemd sss
 shadow:         files sss
@@ -204,6 +205,43 @@ rpc:            db files
 
 netgroup:       nis sss
 automount:      sss
+EOF
+
+#
+# FusionInventory
+#
+apt install -y fusioninventory-agent
+
+cat << EOF > /etc/fusioninventory/agent.cfg
+server = http://inventario.apografis.edu.gva.es/apografis/plugins/fusioninventory/
+delaytime = 86399 #1 dia
+lazy = 0
+scan-homedirs = 0
+scan-profiles = 0
+html = 0
+backend-collect-timeout = 180
+force = 0
+additional-content =
+no-p2p = 0
+proxy =
+user =
+password =
+ca-cert-dir =
+ca-cert-file =
+no-ssl-check = 0
+timeout = 180
+no-httpd = 0
+httpd-ip =
+httpd-port = 62354
+httpd-trust =
+logger = syslog
+logfacility = LOG_DAEMON
+color = 0
+tag = 
+debug = 0
+include "conf.d/"
+EOF
+
 
 # instalar clickcontrol
 # wget https://github.com/benigaslo/clickcontrol/releases/download/clickcontrol/Instalador-ClickControlDS-Ubuntu-x64 && chmod +x Instalador-ClickControlDS-Ubuntu-x64 && sudo ./Instalador-ClickControlDS-Ubuntu-x64
