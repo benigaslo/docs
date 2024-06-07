@@ -21,7 +21,7 @@ mkdir -p /etc/dconf/db/benigaslo.d/
 
 cat << EOF > /etc/dconf/db/benigaslo.d/00_benigaslo_settings
 [org/gnome/shell]
-favorite-apps = ['firefox.desktop', 'nautilus.desktop'] 
+favorite-apps = ['firefox_firefox.desktop', 'nautilus.desktop','google-chrome.desktop','libreoffice-writer.desktop'] 
 
 [org/gnome/desktop/lockdown]
 disable-user-switching=true
@@ -44,7 +44,7 @@ cat << EOF > /etc/dconf/db/gdm.d/00-login-screen
 disable-user-list=true
 logo='/usr/share/pixmaps/logo/logo.svg'
 banner-message-enable=true
-banner-message-text='Accediu amb usuari  @edu.gva.es,\n o amb  pro/pro'
+banner-message-text='Accediu amb usuari  @edu.gva.es,\no amb  pro/pro'
 EOF
 
 dconf update 
@@ -169,9 +169,8 @@ krb5_auth_timeout = 30
 EOF
 
 cat << EOF > /etc/pam.d/common-auth
-auth	[success=3 default=ignore]	pam_unix.so nullok
-auth	[success=2 default=ignore]	pam_sss.so use_first_pass
-#auth	[success=1 default=ignore]	pam_ldap.so use_first_pass
+auth	[success=2 default=ignore]	pam_unix.so nullok
+auth	[success=1 default=ignore]	pam_sss.so use_first_pass
 auth	requisite			pam_deny.so
 auth	required			pam_permit.so
 auth	optional			pam_cap.so 
@@ -194,15 +193,12 @@ passwd:         files systemd sss
 group:          files systemd sss
 shadow:         files sss
 gshadow:        files
-
 hosts:          files mdns4_minimal [NOTFOUND=return] dns
 networks:       files
-
 protocols:      db files
 services:       db files sss
 ethers:         db files
 rpc:            db files
-
 netgroup:       nis sss
 automount:      sss
 EOF
