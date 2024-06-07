@@ -21,3 +21,4 @@ chmod 600 /etc/sssd/sssd.conf
 
 `/etc/pam.d/common-session`
 
+## Check nsswitch.conf
