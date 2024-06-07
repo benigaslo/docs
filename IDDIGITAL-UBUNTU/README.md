@@ -2,12 +2,12 @@
 
 ## Install
 ```
-apt install sssd libpam-ldap  libpam-modules
+apt install sssd 
 ```
 
-No sé si es necessari:
+No és necessari:
 ```
-apt install libpam-mount
+apt install libpam-ldap libpam-mount libpam-modules
 ```
 
 ## Copy
