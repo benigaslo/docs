@@ -1,7 +1,7 @@
 apt update
 apt install -y curl openssh-server nmap tree default-jre plocate wireshark ubuntu-restricted-extras vlc chromium-browser gimp inkscape
 
-apt remove gnome-initial-setup update-notifier
+#? apt remove gnome-initial-setup update-notifier
 
 
 #
@@ -149,6 +149,7 @@ auth	[success=1 default=ignore]	pam_sss.so use_first_pass
 auth	requisite			pam_deny.so
 auth	required			pam_permit.so
 auth	optional			pam_cap.so 
+auth optional   pam_group.so
 EOF
 
 cat << EOF > /etc/pam.d/common-session
@@ -234,6 +235,13 @@ cat << EOF > /etc/docker/daemon.json
   }
 EOF
 
-# Activar docker rootless
-sudo setcap cap_net_bind_service=ep $(which rootlesskit)
-systemctl --user restart docker
+# Afegir als usuaris al group docker
+# (comprovar "auth optional pam_group.so" en el /etc/pam.d/common-auth)
+
+cat << EOF > /etc/security/group.conf
+*;*;*;Al;docker
+EOF
+
+# Docker rootless (no se necessita)
+#sudo setcap cap_net_bind_service=ep $(which rootlesskit)
+#systemctl --user restart docker
