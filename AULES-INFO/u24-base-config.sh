@@ -15,7 +15,7 @@ EOF
 
 mkdir -p /etc/dconf/db/gdm.d/ 
 mkdir -p /usr/share/pixmaps/logo/
-sh -c 'curl -fsSL  https://raw.githubusercontent.com/benigaslo/disseny/master/logo_u.svg > /usr/share/pixmaps/logo/logo.svg'
+sh -c 'curl -fsSL  https://raw.githubusercontent.com/benigaslo/disseny/master/logo_u_info.svg > /usr/share/pixmaps/logo/logo.svg'
 
 
 cat << EOF > /etc/dconf/db/gdm.d/00-login-screen
