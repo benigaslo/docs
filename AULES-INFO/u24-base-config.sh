@@ -3,6 +3,13 @@ apt install -y curl openssh-server nmap tree default-jre plocate wireshark ubunt
 
 #? apt remove gnome-initial-setup update-notifier
 
+#
+# Chrome
+#
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dpkg -i google-chrome-stable_current_amd64.deb
+rm google-chrome-stable_current_amd64.deb
+
 
 #
 # configurar pantalla de login
