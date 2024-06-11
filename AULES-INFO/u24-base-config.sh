@@ -20,6 +20,7 @@ sh -c 'curl -fsSL  https://raw.githubusercontent.com/benigaslo/disseny/master/lo
 
 cat << EOF > /etc/dconf/db/gdm.d/00-login-screen
 [org/gnome/login-screen]
+disable-user-list=true
 logo='/usr/share/pixmaps/logo/logo.svg'
 banner-message-enable=true
 banner-message-text='Accediu amb usuari  @edu.gva.es,\no amb  alu/alu'
