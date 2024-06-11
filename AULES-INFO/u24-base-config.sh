@@ -1,5 +1,5 @@
 apt update
-apt install -y curl openssh-server nmap tree default-jre plocate wireshark ubuntu-restricted-extras vlc chromium-browser gimp inkscape
+apt install -y curl openssh-server nmap tree default-jre plocate wireshark ubuntu-restricted-extras vlc chromium-browser gimp inkscape git
 
 #? apt remove gnome-initial-setup update-notifier
 
