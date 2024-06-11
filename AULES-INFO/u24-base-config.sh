@@ -1,27 +1,31 @@
-#
+# ====================================================================
 # Desactivar actualitzacions automatiques snap
-#
+# ====================================================================
+
 snap refresh --hold
 
-#
+# ====================================================================
 # Varios
-#
+# ====================================================================
+
 apt update
 apt install -y curl openssh-server nmap tree default-jre plocate wireshark ubuntu-restricted-extras vlc chromium-browser gimp inkscape git
 
 #? apt remove gnome-initial-setup update-notifier
 
-#
+# ====================================================================
 # Chrome
-#
+# ====================================================================
+
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb
 
 
-#
+# ====================================================================
 # configurar pantalla de login
-#
+# ====================================================================
+
 cat << EOF > /etc/dconf/profile/gdm
 user-db:user
 system-db:gdm
@@ -45,18 +49,19 @@ dconf update
 chmod a+rx -R /etc/dconf
 
 
-#
+# ====================================================================
 # configurar ssh
-#
+# ====================================================================
 
 echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
 mkdir -p /root/.ssh 
 sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub > /root/.ssh/authorized_keys'
 
 
-#
+# ====================================================================
 # Configurar IDDigital
-#
+# ====================================================================
+
 apt install -y sssd
 
 touch /etc/sssd/sssd.conf
@@ -196,9 +201,10 @@ automount:      sss
 EOF
 
 
-#
+# ====================================================================
 # FusionInventory
-#
+# ====================================================================
+
 apt install -y fusioninventory-agent
 
 cat << EOF > /etc/fusioninventory/agent.cfg
@@ -232,15 +238,17 @@ include "conf.d/"
 EOF
 
 
-#
+# ====================================================================
 # Instalar Node_20x
-#
+# ====================================================================
+
 curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 apt install -y nodejs
 
-#
+# ====================================================================
 # Docker
-#
+# ====================================================================
+
 curl -fsSL https://get.docker.com | bash -
 
 # Configurar la red default docker
