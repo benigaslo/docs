@@ -1,3 +1,11 @@
+#
+# Desactivar actualitzacions automatiques snap
+#
+snap refresh --hold
+
+#
+# Varios
+#
 apt update
 apt install -y curl openssh-server nmap tree default-jre plocate wireshark ubuntu-restricted-extras vlc chromium-browser gimp inkscape git
 
