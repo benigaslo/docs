@@ -58,7 +58,7 @@
            "bip": "10.0.100.1/24"
         }
   
-- activar Rootless
+- activar Rootless (No és necessari, millor fer lo del /etc/security/groups.conf )
   
       sudo setcap cap_net_bind_service=ep $(which rootlesskit)
   
@@ -94,7 +94,7 @@
             with open(file_path, 'a') as file:
               file.write(word)
         ```
-- Cada alumne ha d'executar:
+   - Cada alumne ha d'executar:
 
       dockerd-rootless-setuptool.sh install
       
