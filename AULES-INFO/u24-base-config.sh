@@ -15,7 +15,7 @@ sudo add-apt-repository ppa:gns3/ppa
 
 apt update
 
-apt install -y curl openssh-server nmap tree default-jre plocate wireshark ubuntu-restricted-extras vlc chromium-browser gimp inkscape git sssd fusioninventory-agent nodejs gns3-gui bridge-utils
+apt install -y curl openssh-server nmap tree default-jre plocate wireshark ubuntu-restricted-extras vlc chromium-browser gimp inkscape git sssd fusioninventory-agent nodejs gns3-gui bridge-utils mono-complete
 
 curl -fsSL https://get.docker.com | bash -
 
@@ -291,3 +291,7 @@ EOF
 # cat << EOF > /etc/security/group.conf
 # *;*;*;Al;ubridge,libvirt,kvm,wireshark,docker
 # EOF
+
+# ====================================================================
+# FogClient
+# ====================================================================
