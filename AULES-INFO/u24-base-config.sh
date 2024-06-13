@@ -5,22 +5,25 @@
 snap refresh --hold
 
 # ====================================================================
-# Varios
+# Instalar Varios
 # ====================================================================
 
 apt update
-apt install -y curl openssh-server nmap tree default-jre plocate wireshark ubuntu-restricted-extras vlc chromium-browser gimp inkscape git
+
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+sudo add-apt-repository ppa:gns3/ppa
+
+apt update
+
+apt install -y curl openssh-server nmap tree default-jre plocate wireshark ubuntu-restricted-extras vlc chromium-browser gimp inkscape git sssd fusioninventory-agent nodejs gns3-gui bridge-utils
+
+curl -fsSL https://get.docker.com | bash -
 
 #? apt remove gnome-initial-setup update-notifier
-
-# ====================================================================
-# Chrome
-# ====================================================================
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb
-
 
 # ====================================================================
 # configurar pantalla de login
@@ -62,7 +65,7 @@ sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id
 # Configurar IDDigital
 # ====================================================================
 
-apt install -y sssd
+# apt install -y sssd
 
 touch /etc/sssd/sssd.conf
 chmod 600 /etc/sssd/sssd.conf
@@ -200,12 +203,19 @@ netgroup:       nis sss
 automount:      sss
 EOF
 
+# ====================================================================
+# Afegir a tots els usuaris (inclosos iddigital) als grups necesaris
+# ====================================================================
+
+cat << EOF > /etc/security/group.conf
+*;*;*;Al;ubridge,libvirt,kvm,wireshark,docker
+EOF
 
 # ====================================================================
 # FusionInventory
 # ====================================================================
 
-apt install -y fusioninventory-agent
+# apt install -y fusioninventory-agent
 
 cat << EOF > /etc/fusioninventory/agent.cfg
 server = http://inventario.apografis.edu.gva.es/apografis/plugins/fusioninventory/
@@ -242,14 +252,14 @@ EOF
 # Instalar Node_20x
 # ====================================================================
 
-curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-apt install -y nodejs
+# curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+# apt install -y nodejs
 
 # ====================================================================
 # Docker
 # ====================================================================
 
-curl -fsSL https://get.docker.com | bash -
+# curl -fsSL https://get.docker.com | bash -
 
 # Configurar la red default docker
 mkdir -p /etc/docker/
@@ -262,10 +272,22 @@ EOF
 # Afegir als usuaris al group docker
 # (comprovar "auth optional pam_group.so" en el /etc/pam.d/common-auth)
 
-cat << EOF > /etc/security/group.conf
-*;*;*;Al;docker
-EOF
+# cat << EOF > /etc/security/group.conf
+# *;*;*;Al;docker
+# EOF
 
 # Docker rootless (no se necessita)
 #sudo setcap cap_net_bind_service=ep $(which rootlesskit)
 #systemctl --user restart docker
+
+# ====================================================================
+# PacketTracer
+# ====================================================================
+
+# sudo add-apt-repository ppa:gns3/ppa
+# sudo apt update
+# sudo apt install gns3-gui bridge-utils
+
+# cat << EOF > /etc/security/group.conf
+# *;*;*;Al;ubridge,libvirt,kvm,wireshark,docker
+# EOF
