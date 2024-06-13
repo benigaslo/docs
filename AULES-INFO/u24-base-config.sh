@@ -277,16 +277,16 @@ EOF
 # EOF
 
 # Docker rootless (no se necessita)
-#sudo setcap cap_net_bind_service=ep $(which rootlesskit)
+# setcap cap_net_bind_service=ep $(which rootlesskit)
 #systemctl --user restart docker
 
 # ====================================================================
 # PacketTracer
 # ====================================================================
 
-# sudo add-apt-repository ppa:gns3/ppa
-# sudo apt update
-# sudo apt install gns3-gui bridge-utils
+# add-apt-repository ppa:gns3/ppa
+# apt update
+# apt install gns3-gui bridge-utils
 
 # cat << EOF > /etc/security/group.conf
 # *;*;*;Al;ubridge,libvirt,kvm,wireshark,docker
@@ -295,3 +295,9 @@ EOF
 # ====================================================================
 # FogClient
 # ====================================================================
+
+# apt install mono-complete
+
+wget https://github.com/benigaslo/bin/raw/main/SmartInstaller.exe
+mono SmartInstaller.exe --server 172.21.44.254
+rm SmartInstaller.exe
