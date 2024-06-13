@@ -1,0 +1,22 @@
+/etc/netplan/01-network-manager-all.yaml
+
+network:
+  version: 2
+  ethernets:
+    enp0s25:
+      dhcp4: true
+  bridges:
+    mainbr0:
+      dhcp4: yes
+      interfaces: [enp0s25]
+
+
+# virt-manager 
+# habilitar edicion XML
+# connection-details > add > 
+
+<network>
+  <name>hostbridge</name>
+  <forward mode="bridge"/>
+  <bridge name="mainbr0"/>
+</network>
