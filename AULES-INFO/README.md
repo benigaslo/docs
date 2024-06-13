@@ -1,42 +1,10 @@
-1. Desactivar actualitzacions automatiques "snap"
+Falta mirar lo del proxy automatic autodiscover
 
-        sudo snap refresh --hold
 
-1. ssh
-    - copiar la clau publica
-    - desactivar el password login
-1. instalar client fog
-1. instalar virtualbox, vscode, intellij, chromium, vlc, gimp, dia, kdenlive, audacity, packettracer
-1. ubuntu-restricted-extras
-    - bug:
 
-          sudo apt remove gstreamer1.0-vaapi
-      
-1. iddigital
-1. Instalar SETTINGS
-   
-        sudo apt install gnome-control-center
-   
-1. Desinstalar:
+1. instalar virtualbox, vscode, intellij, dia, kdenlive, audacity
 
-        sudo apt remove gnome-initial-setup update-notifier
- 
 
-1. BUG guardar-como firefox
-   
-        sudo apt install xdg-desktop-portal xdg-desktop-portal-gtk
-   
-1. Instalar nmap, etccc
-
-       sudo apt install nmap tree plocate
-
-1. Node_18x
-   
-       curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh
-       bash nodesource_setup.sh
-       apt install nodejs
-
-1. apt install wireshark
 2. Epoptes
    - Server
 
@@ -51,21 +19,9 @@
           sudo epoptes-client -c
    
 
-## Docker
-- canviar la red default `/etc/docker/daemon.json`
-
-        {
-           "bip": "10.0.100.1/24"
-        }
-  
-- activar Rootless (No és necessari, millor fer lo del /etc/security/groups.conf )
-  
-      sudo setcap cap_net_bind_service=ep $(which rootlesskit)
-  
-      systemctl --user restart docker
+## lib-pam python 
     
-    - Se te que afegir el usuari al fichero /etc/subuid i /etc/subgid
-    
+ 
         - Instalar esto:
         ```
         sudo apt install libpam-python
@@ -75,10 +31,13 @@
         ```
         session required        pam_python.so /root/pam_slo.py
         ```
+        
         - Script /root/pam_slo.py
+        
         ```
         def pam_sm_open_session(pamh, flags, argv):
           user=pamh.get_user(None)
+          # fer lo que se desitje quan se logueje l'usuari
           require_line("/etc/subuid", "%s:100000:65536\n" % user)
           require_line("/etc/subgid", "%s:100000:65536\n" % user)
           return pamh.PAM_SUCCESS
@@ -94,14 +53,6 @@
             with open(file_path, 'a') as file:
               file.write(word)
         ```
-   - Cada alumne ha d'executar:
-
-      dockerd-rootless-setuptool.sh install
-      
-
-      
-    
-
 
 # Server only
 
