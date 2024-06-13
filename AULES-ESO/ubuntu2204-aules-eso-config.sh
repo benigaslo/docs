@@ -1,17 +1,26 @@
+# ====================================================================
+# Instalar coses
+# ====================================================================
+
 apt update
-apt install -y curl openssh-server nmap default-jre plocate ubuntu-restricted-extras vlc chromium-browser gimp inkscape libdvd-pkg
+apt install -y curl openssh-server nmap default-jre plocate ubuntu-restricted-extras vlc chromium-browser gimp inkscape libdvd-pkg mono-complete sssd fusioninventory-agent
 apt install -y $(check-language-support)
 dpkg-reconfigure libdvd-pkg
 apt remove gnome-initial-setup update-notifier thunderbird
 
-mkdir -p /usr/share/pixmaps/logo/
-sh -c 'curl -fsSL  https://raw.githubusercontent.com/benigaslo/disseny/master/logo_u.svg > /usr/share/pixmaps/logo/logo.svg'
+# ====================================================================
+# Configurar escriptori
+# ====================================================================
 
-#
+# logo pantalla login
 # canviar aplicacions favorites
 # deshabilitar canviar d'usuari
 # deshabilitar bloqueig de pantalla
-#
+# amagar la llista de usuaris a la pantalla de login
+
+mkdir -p /usr/share/pixmaps/logo/
+sh -c 'curl -fsSL  https://raw.githubusercontent.com/benigaslo/disseny/master/logo_u.svg > /usr/share/pixmaps/logo/logo.svg'
+
 cat << EOF > /etc/dconf/profile/user
 user-db:user
 system-db:benigaslo
@@ -28,9 +37,6 @@ disable-user-switching=true
 disable-lock-screen=true
 EOF
 
-#
-# amagar la llista de usuaris a la pantalla de login
-#
 cat << EOF > /etc/dconf/profile/gdm
 user-db:user
 system-db:gdm
@@ -50,23 +56,23 @@ EOF
 dconf update 
 chmod a+rx -R /etc/dconf
 
-#
 # Deshabilitar la hibernacio
-#
+
 systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
-#
+# ====================================================================
 # configurar ssh
-#
+# ====================================================================
+
 echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
 mkdir -p /root/.ssh 
 sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub > /root/.ssh/authorized_keys'
 
-#
+# ====================================================================
 # Configurar IDDigital
-#
-# apt install -y sssd libpam-ldap  libpam-modules  libpam-mount
-apt install -y sssd
+# ====================================================================
+
+# apt install -y sssd
 
 touch /etc/sssd/sssd.conf
 chmod 600 /etc/sssd/sssd.conf
@@ -203,10 +209,11 @@ netgroup:       nis sss
 automount:      sss
 EOF
 
-#
+# ====================================================================
 # FusionInventory
-#
-apt install -y fusioninventory-agent
+# ====================================================================
+
+# apt install -y fusioninventory-agent
 
 cat << EOF > /etc/fusioninventory/agent.cfg
 server = http://inventario.apografis.edu.gva.es/apografis/plugins/fusioninventory/
@@ -238,6 +245,13 @@ debug = 0
 include "conf.d/"
 EOF
 
+# ====================================================================
+# FogClient
+# ====================================================================
+
+wget https://github.com/benigaslo/bin/raw/main/SmartInstaller.exe
+mono SmartInstaller.exe --server 172.21.44.254
+rm SmartInstaller.exe SmartInstaller.log
 
 # instalar clickcontrol
 # wget https://github.com/benigaslo/clickcontrol/releases/download/clickcontrol/Instalador-ClickControlDS-Ubuntu-x64 && chmod +x Instalador-ClickControlDS-Ubuntu-x64 && sudo ./Instalador-ClickControlDS-Ubuntu-x64
