@@ -300,4 +300,4 @@ EOF
 
 wget https://github.com/benigaslo/bin/raw/main/SmartInstaller.exe
 mono SmartInstaller.exe --server 172.21.44.254
-rm SmartInstaller.exe
+rm SmartInstaller.exe SmartInstaller.log
