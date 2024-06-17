@@ -173,7 +173,7 @@ auth	[success=1 default=ignore]	pam_sss.so use_first_pass
 auth	requisite			pam_deny.so
 auth	required			pam_permit.so
 auth	optional			pam_cap.so 
-auth optional   pam_group.so
+auth	optional   pam_group.so
 EOF
 
 cat << EOF > /etc/pam.d/common-session
