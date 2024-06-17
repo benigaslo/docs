@@ -12,7 +12,7 @@ network:
 
 
 # virt-manager 
-# habilitar edicion XML
+# preferences > habilitar edicion XML
 # connection-details > add > 
 
 <network>
