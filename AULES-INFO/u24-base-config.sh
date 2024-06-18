@@ -27,6 +27,9 @@ dpkg -i google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb
 
 snap install code --classic
+snap install kdenlive
+snap install audacity
+
 
 # TODO: desinstalar Thunderbird y Rhythmbox, actualitzar snaps i snapd
 
