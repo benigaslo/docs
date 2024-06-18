@@ -1,8 +1,4 @@
-# ====================================================================
-# Desactivar actualitzacions automatiques snap
-# ====================================================================
 
-snap refresh --hold
 
 # ====================================================================
 # Instalar Varios
@@ -37,9 +33,15 @@ snap install code --classic
 snap install kdenlive
 snap install audacity
 
+snap remove thunderbird
+snap remove rhythmbox
+snap refresh
 
-# TODO: desinstalar Thunderbird y Rhythmbox, actualitzar snaps i snapd
+# ====================================================================
+# Desactivar actualitzacions automatiques snap
+# ====================================================================
 
+snap refresh --hold
 
 # ====================================================================
 # configurar pantalla de login
