@@ -65,28 +65,26 @@ EOF
 
 # Esperar a que la xarxa estiga online per a iniciar dnsmasq
 
-#cat << EOF > /lib/systemd/system/dnsmasq.service
-#[Unit]
-#Description=dnsmasq - A lightweight DHCP and caching DNS server
-#Requires=network-online.target
-#Wants=nss-lookup.target
-#Before=nss-lookup.target
-#After=network-online.target
-#
-#[Service]
-#Type=forking
-#PIDFile=/run/dnsmasq/dnsmasq.pid
-#ExecStartPre=/etc/init.d/dnsmasq checkconfig
-#ExecStart=/etc/init.d/dnsmasq systemd-exec
-#ExecStartPost=/etc/init.d/dnsmasq systemd-start-resolvconf
-#ExecStop=/etc/init.d/dnsmasq systemd-stop-resolvconf
-#ExecReload=/bin/kill -HUP $MAINPID
-#Restart=on-failure
-#RestartSec=5s
-#
-#[Install]
-#WantedBy=multi-user.target
-#EOF
+cat << EOF > /lib/systemd/system/dnsmasq.service
+[Unit]
+Description=dnsmasq - A lightweight DHCP and caching DNS server
+Requires=network-online.target
+Wants=nss-lookup.target
+Before=nss-lookup.target
+After=network-online.target
+
+[Service]
+Type=forking
+PIDFile=/run/dnsmasq/dnsmasq.pid
+ExecStartPre=/usr/share/dnsmasq/systemd-helper checkconfig
+ExecStart=/usr/share/dnsmasq/systemd-helper exec
+ExecStartPost=/usr/share/dnsmasq/systemd-helper start-resolvconf
+ExecStop=/usr/share/dnsmasq/systemd-helper stop-resolvconf
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+EOF
 
 ############## CONFIG NETPLAN
 
