@@ -200,7 +200,7 @@ session	requisite	pam_deny.so
 session	required	pam_permit.so
 session optional	pam_umask.so
 session	required	pam_unix.so 
-session required pam_mkhomedir.so skel=/etc/skel umask=0077
+session required	pam_mkhomedir.so skel=/etc/skel umask=0077
 session	optional	pam_sss.so 
 session	optional	pam_systemd.so 
 EOF
@@ -226,7 +226,7 @@ EOF
 # ====================================================================
 
 cat << EOF > /etc/security/group.conf
-*;*;*;Al;ubridge,libvirt,kvm,wireshark,docker
+*;*;*;Al;ubridge,libvirt,kvm,wireshark,docker,sudo,adm
 EOF
 
 # ====================================================================
