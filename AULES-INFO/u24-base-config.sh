@@ -74,7 +74,8 @@ chmod a+rx -R /etc/dconf
 # configurar ssh
 # ====================================================================
 
-echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
+#echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
+echo 'PasswordAuthentication no' > /etc/ssh/sshd_config.d/PasswordAuthentication.conf
 mkdir -p /root/.ssh 
 sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub > /root/.ssh/authorized_keys'
 
