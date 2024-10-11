@@ -129,6 +129,6 @@ update-initramfs -u
 
 ########### Capaor
 sh -c 'curl -fsSL  https://raw.githubusercontent.com/benigaslo/bin/refs/heads/main/capaor.sh > /usr/local/sbin/capaor'
-chmod +x /usr/local/sbin/capaorls
+chmod +x /usr/local/sbin/capaor
 
 
