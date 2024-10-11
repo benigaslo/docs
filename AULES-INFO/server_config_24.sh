@@ -115,7 +115,6 @@ iptables -P FORWARD ACCEPT
 
 # NATejar el TFTP
 modprobe nf_nat_tftp
-sed -i "/nf_nat_tftp/d" /etc/modules-load.d/modules.conf
 printf "nf_nat_tftp" >> /etc/modules-load.d/nf_nat_tftp.conf
 iptables -t raw -I PREROUTING -j CT -p udp -m udp --dport 69 --helper tftp
 
@@ -127,3 +126,9 @@ apt install -y r8168-dkms
 sed -i "/blacklist r8169/d" /etc/modprobe.d/blacklist.conf
 printf "blacklist r8169\n" >> /etc/modprobe.d/blacklist.conf
 update-initramfs -u 
+
+########### Capaor
+sh -c 'curl -fsSL  https://raw.githubusercontent.com/benigaslo/bin/refs/heads/main/capaor.sh > /usr/local/sbin/capaor'
+chmod +x /usr/local/sbin/capaorls
+
+
