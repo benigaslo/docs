@@ -2,7 +2,7 @@ Falta mirar lo del proxy automatic autodiscover
 
 
 
-1. instalar virtualbox, vscode, intellij, dia, kdenlive, audacity
+1. instalar virtualbox, intellij, packettracer
 
 
 2. Epoptes
@@ -20,7 +20,8 @@ Falta mirar lo del proxy automatic autodiscover
    
 
 ## lib-pam python 
-    
+
+Ja no fa falta, se utilitzava per a afegir als usuaris al subuid i subgid al logejar-se (per el docker), pero ara se fa per el /etc/security/group.conf
  
         - Instalar esto:
         ```
