@@ -6,7 +6,26 @@ apt update
 apt install -y curl openssh-server nmap default-jre plocate ubuntu-restricted-extras vlc chromium-browser gimp inkscape libdvd-pkg mono-complete sssd fusioninventory-agent
 apt install -y $(check-language-support)
 dpkg-reconfigure libdvd-pkg
-apt remove gnome-initial-setup update-notifier thunderbird
+apt remove gnome-initial-setup update-notifier thunderbird rhythmbox
+
+snap remove thunderbird
+snap remove rhythmbox
+snap refresh
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dpkg -i google-chrome-stable_current_amd64.deb
+rm google-chrome-stable_current_amd64.deb
+
+# ====================================================================
+# Desactivar actualitzacions automatiques snap i apt
+# ====================================================================
+
+snap refresh --hold
+
+cat << EOF > /etc/apt/apt.conf.d/90desactivar-unattended-upgrades
+APT::Periodic::Unattended-Upgrade "0";
+APT::Periodic::Update-Package-Lists "0";
+EOF
 
 # ====================================================================
 # Configurar escriptori
