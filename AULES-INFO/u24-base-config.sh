@@ -60,7 +60,9 @@ EOF
 
 mkdir -p /etc/dconf/db/gdm.d/ 
 mkdir -p /usr/share/pixmaps/logo/
-sh -c 'curl -fsSL  https://raw.githubusercontent.com/benigaslo/disseny/master/logo_u_info.svg > /usr/share/pixmaps/logo/logo.svg'
+curl -fsSLo /usr/share/pixmaps/logo/logo.svg  https://raw.githubusercontent.com/benigaslo/disseny/master/logo_u_info.svg
+
+# sh -c 'curl -fsSL  https://raw.githubusercontent.com/benigaslo/disseny/master/logo_u_info.svg > /usr/share/pixmaps/logo/logo.svg'
 
 
 cat << EOF > /etc/dconf/db/gdm.d/00-login-screen
@@ -79,10 +81,11 @@ chmod a+rx -R /etc/dconf
 # configurar ssh
 # ====================================================================
 
-#echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
+# echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
 echo 'PasswordAuthentication no' > /etc/ssh/sshd_config.d/PasswordAuthentication.conf
 mkdir -p /root/.ssh 
-sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub > /root/.ssh/authorized_keys'
+curl -fsSLo /root/.ssh/authorized_keys https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub
+# sh -c 'curl -fsSL  https://github.com/benigaslo/docs/releases/download/id_rsa/id_rsa.pub > /root/.ssh/authorized_keys'
 
 
 # ====================================================================
