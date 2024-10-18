@@ -38,10 +38,15 @@ snap remove rhythmbox
 snap refresh
 
 # ====================================================================
-# Desactivar actualitzacions automatiques snap
+# Desactivar actualitzacions automatiques snap i apt
 # ====================================================================
 
 snap refresh --hold
+
+cat << EOF > /etc/apt/apt.conf.d/90desactivar-unattended-upgrades
+APT::Periodic::Unattended-Upgrade "0";
+APT::Periodic::Update-Package-Lists "0";
+EOF
 
 # ====================================================================
 # configurar pantalla de login
