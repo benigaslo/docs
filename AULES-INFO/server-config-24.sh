@@ -24,7 +24,9 @@ done
 #    read HOSTNAME
 #done
 
-######## CONFIG DNSMASQ
+# =================
+# CONFIG DNSMASQ
+# =================
 
 apt install dnsmasq
 
@@ -86,7 +88,9 @@ ExecReload=/bin/kill -HUP $MAINPID
 WantedBy=multi-user.target
 EOF
 
-############## CONFIG NETPLAN
+# =================
+# CONFIG NETPLAN
+# =================
 
 cat << EOF > /etc/netplan/01-network-manager-all.yaml
 network:
@@ -105,7 +109,9 @@ sleep 10
 systemctl daemon-reload
 systemctl restart dnsmasq
 
-############# CONFIG ROUTER
+# =================
+# CONFIG ROUTER
+# =================
 
 sed -i "/ip_forward/d" /etc/sysctl.conf
 printf "net.ipv4.ip_forward = 1" >> /etc/systctl.conf
@@ -121,14 +127,18 @@ iptables -t raw -I PREROUTING -j CT -p udp -m udp --dport 69 --helper tftp
 apt install iptables-persistent
 iptables-save > /etc/iptables/rules.v4
 
+# =================
 # Drivers realtek
+# =================
 apt install -y r8168-dkms
 sed -i "/blacklist r8169/d" /etc/modprobe.d/blacklist.conf
 printf "blacklist r8169\n" >> /etc/modprobe.d/blacklist.conf
 update-initramfs -u 
 
-########### Capaor
-sh -c 'curl -fsSL  https://raw.githubusercontent.com/benigaslo/bin/refs/heads/main/capaor.sh > /usr/local/sbin/capaor'
+# ================
+# Capaor
+# ================
+curl -fsSLo /usr/local/sbin/capaor https://raw.githubusercontent.com/benigaslo/bin/refs/heads/main/capaor.sh
 chmod +x /usr/local/sbin/capaor
 
 
