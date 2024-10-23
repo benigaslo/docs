@@ -2,7 +2,6 @@
 
 1. Instalar virt-manager
 1. Canviar Java11 per Java 22
-1. Instala el capaor
 1. Falta mirar lo del proxy automatic autodiscover
 
 1. instalar virtualbox, intellij, packettracer
