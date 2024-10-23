@@ -130,3 +130,10 @@ apt install -y r8168-dkms
 printf "blacklist r8169\n" > /etc/modprobe.d/blacklist_r8169.conf
 
 update-initramfs -u 
+
+# ================
+# Capaor
+# ================
+
+curl -fsSLo /usr/local/sbin/capaor https://raw.githubusercontent.com/benigaslo/bin/refs/heads/main/capaor.sh
+chmod +x /usr/local/sbin/capaor
