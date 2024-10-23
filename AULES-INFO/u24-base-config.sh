@@ -48,6 +48,21 @@ APT::Periodic::Unattended-Upgrade "0";
 APT::Periodic::Update-Package-Lists "0";
 EOF
 
+# ==============
+# Flickering bug
+# ==============
+
+cat << EOF > /etc/default/grub
+GRUB_DEFAULT=0
+GRUB_TIMEOUT_STYLE=hidden
+GRUB_TIMEOUT=0
+GRUB_DISTRIBUTOR=\`( . /etc/os-release; echo \${NAME:-Ubuntu} ) 2>/dev/null || echo Ubuntu\`
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash intel_iommu=igfx_off"
+GRUB_CMDLINE_LINUX=""
+EOF
+
+update-grub
+
 # ====================================================================
 # configurar pantalla de login
 # ====================================================================
