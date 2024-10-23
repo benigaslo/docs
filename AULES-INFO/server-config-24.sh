@@ -132,7 +132,7 @@ iptables-save > /etc/iptables/rules.v4
 # =================
 apt install -y r8168-dkms
 # sed -i "/blacklist r8169/d" /etc/modprobe.d/blacklist.conf
-printf "blacklist r8169\n" >> /etc/modprobe.d/blacklist_r8169.conf
+printf "blacklist r8169\n" > /etc/modprobe.d/blacklist_r8169.conf
 update-initramfs -u 
 
 # ================
