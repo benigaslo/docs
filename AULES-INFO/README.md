@@ -1,6 +1,5 @@
 ## TODO:
 
-1. Instalar virt-manager
 1. Canviar Java11 per Java 22
 1. Falta mirar lo del proxy automatic autodiscover
 
