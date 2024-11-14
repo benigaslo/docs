@@ -34,7 +34,8 @@ snap install kdenlive
 snap install audacity
 
 snap remove thunderbird
-snap remove rhythmbox
+## TODO: snap shythmbox is not installed
+snap remove rhythmbox  
 snap refresh
 
 # ====================================================================
