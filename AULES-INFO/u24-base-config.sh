@@ -63,6 +63,12 @@ EOF
 
 update-grub
 
+# =============================================
+# Afegir usuaris
+# =============================================
+
+useradd -m -p "\$y\$j9T\$BkfsfC01PB3SIXQCu/KyO1\$sm4OFcrP3m2RFhsGBRHF6AX1AImPKOq6AxHlkXKfo04" -s /bin/bash alu
+
 # ====================================================================
 # configurar pantalla de login
 # ====================================================================
