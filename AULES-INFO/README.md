@@ -6,6 +6,8 @@
 
 1. instalar virtualbox, intellij, packettracer
 
+1. Canviar el logo en el server, i posar accediu amb pro/pro 
+
 1. Epoptes
    - Server
 
