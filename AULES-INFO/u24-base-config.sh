@@ -8,7 +8,7 @@ apt update
 apt install -y curl
 
 curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-sudo add-apt-repository ppa:gns3/ppa
+sudo add-apt-repository -y ppa:gns3/ppa
 
 apt update
 
