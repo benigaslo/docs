@@ -35,9 +35,10 @@ snap install audacity
 
 snap remove thunderbird
 ## TODO: snap shythmbox is not installed
-snap remove rhythmbox  
+#snap remove rhythmbox  
 snap refresh
 
+apt remove rhythmbox
 # ====================================================================
 # Desactivar actualitzacions automatiques snap i apt
 # ====================================================================
