@@ -1,8 +1,7 @@
 # FOG
 
-Actualment, el dhcp-boot el fa el router de ClickControl.
-
-El dnsmasq del server esta deshabilitat.
+Actualment, el dhcp-boot el fa el router de ClickControl. El dnsmasq del server esta deshabilitat.
+¿? EN el dhcp-boot del CC està configurat l'arxiu `undionly.kkpxe`
 
 Per a arrancar maquines virtuals QEMU/KVM en mode UEFI (TianoCore amb Secure Boot deshabilitat) s'ha de reanomenar l'arxiu `/tftpboot/snponly.efi` a `/tftpboot/undionly.kkpxe`
 
