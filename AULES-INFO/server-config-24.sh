@@ -23,6 +23,8 @@ done
 #    echo "Hostname:"
 #    read HOSTNAME
 #done
+mkdir -p /usr/share/pixmaps/logo/
+curl -fsSLo /usr/share/pixmaps/logo/logo.svg  https://raw.githubusercontent.com/benigaslo/disseny/master/logo_u_info_server.svg
 
 # =================
 # CONFIG DNSMASQ
