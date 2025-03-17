@@ -12,7 +12,7 @@ sudo add-apt-repository -y ppa:gns3/ppa
 
 apt update
 
-apt install -y openssh-server nmap tree plocate default-jre wireshark ubuntu-restricted-extras vlc chromium-browser gimp inkscape dia git sssd fusioninventory-agent nodejs gns3-gui bridge-utils virt-manager mono-complete
+apt install -y openssh-server pssh nmap tree plocate default-jre wireshark ubuntu-restricted-extras vlc chromium-browser gimp inkscape dia git sssd fusioninventory-agent nodejs gns3-gui bridge-utils virt-manager mono-complete
 
 curl -fsSL https://get.docker.com | bash -
 
@@ -38,7 +38,7 @@ snap remove thunderbird
 #snap remove rhythmbox  
 snap refresh
 
-apt remove rhythmbox
+apt remove rhythmbox deja-dup
 # ====================================================================
 # Desactivar actualitzacions automatiques snap i apt
 # ====================================================================
@@ -236,6 +236,10 @@ session required	pam_mkhomedir.so skel=/etc/skel umask=0077
 session	optional	pam_sss.so 
 session	optional	pam_systemd.so 
 EOF
+
+chattr +i /etc/pam.d/common-auth
+chattr +i /etc/pam.d/common-session
+
 
 ## Comprovar /etc/nsswitch.conf
 cat << EOF > /etc/nsswitch.conf

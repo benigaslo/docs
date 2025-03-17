@@ -6,15 +6,14 @@
 
 1. instalar virtualbox, intellij, packettracer
 
-1. Canviar en el server, posar accediu amb pro/pro 
 
 * posar el wateacher
 
-* install pssh en el server
-
-* desinstalar deja-dup
-
 * lo del pam-auth-update !!
+  * solució temporal: fer immutables els arxius
+
+        chattr +i /etc/pam.d/common-auth
+        chattr +i /etc/pam.d/common-session
 
 ## Nada de epoptes
 1. Epoptes

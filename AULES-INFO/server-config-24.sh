@@ -1,5 +1,9 @@
 #!/usr/bin/bash
 
+# ===========
+# IMPORTANT: executar primer el script 'base-config'
+# ===========
+
 ip -br -c a
 
 INTER_IFACE=$1
@@ -23,8 +27,21 @@ done
 #    echo "Hostname:"
 #    read HOSTNAME
 #done
+
 mkdir -p /usr/share/pixmaps/logo/
 curl -fsSLo /usr/share/pixmaps/logo/logo.svg  https://raw.githubusercontent.com/benigaslo/disseny/master/logo_u_info_server.svg
+
+cat << EOF > /etc/dconf/db/gdm.d/00-login-screen
+[org/gnome/login-screen]
+disable-user-list=true
+logo='/usr/share/pixmaps/logo/logo.svg'
+banner-message-enable=true
+banner-message-text='Accediu amb usuari  @edu.gva.es,\no amb  pro/pro'
+EOF
+
+dconf update 
+chmod a+rx -R /etc/dconf
+
 
 # =================
 # CONFIG DNSMASQ
