@@ -10,10 +10,11 @@
 
 * posar el wateacher
 
-*install pssh en el server
+* install pssh en el server
 
 * desinstalar deja-dup
 
+* lo del pam-auth-update !!
 
 ## Nada de epoptes
 1. Epoptes
