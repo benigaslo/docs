@@ -314,9 +314,15 @@ EOF
 # Configurar la red default docker
 mkdir -p /etc/docker/
 cat << EOF > /etc/docker/daemon.json
-  {
-     "bip": "10.0.100.1/24"
-  }
+{
+  "bip": "10.0.100.1/24",
+  "default-address-pools": [
+    {
+      "base": "10.1.0.0/16",
+      "size": 24
+    }
+  ]
+}
 EOF
 
 # Afegir als usuaris al group docker
