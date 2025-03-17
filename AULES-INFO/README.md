@@ -8,6 +8,14 @@
 
 1. Canviar en el server, posar accediu amb pro/pro 
 
+* posar el wateacher
+
+*install pssh en el server
+
+* desinstalar deja-dup
+
+
+## Nada de epoptes
 1. Epoptes
    - Server
 
