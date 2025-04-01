@@ -140,7 +140,7 @@ iptables -P FORWARD ACCEPT
 
 # NATejar el TFTP
 modprobe nf_nat_tftp
-printf "nf_nat_tftp" >> /etc/modules-load.d/nf_nat_tftp.conf
+printf "nf_nat_tftp" > /etc/modules-load.d/nf_nat_tftp.conf
 iptables -t raw -I PREROUTING -j CT -p udp -m udp --dport 69 --helper tftp
 
 apt install iptables-persistent
