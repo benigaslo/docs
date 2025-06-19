@@ -2,7 +2,7 @@
 # Instalar Varios
 # ====================================================================
 
-apt remove xournalpp xaos tuxtype scribus ri-li qstopmotion posterazor onboard musescore3 marble librecad kig gperiodic avogadro
+apt remove xournalpp xaos tuxtype scribus ri-li qstopmotion posterazor onboard musescore3 marble librecad kig gperiodic avogadro intef-exe-appimage gdis hotpotatoes
 
 # desinstalar transmission skanlite libgphoto2-6 laby kget kamoso k3b jclic imagination filezilla gparted tuxmath
 
