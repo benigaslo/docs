@@ -2,6 +2,15 @@
 # Instalar Varios
 # ====================================================================
 
+apt remove xournalpp xaos tuxtype scribus ri-li qstopmotion posterazor onboard musescore3 marble librecad kig gperiodic avogadro
+
+# desinstalar transmission skanlite libgphoto2-6 laby kget kamoso k3b jclic imagination filezilla gparted tuxmath
+
+# groovy-console gestor-particions-kde
+
+
+# kde-sms
+
 apt update
 apt install -y curl
 
