@@ -45,10 +45,20 @@ curl -fsSLo /root/.ssh/authorized_keys https://github.com/benigaslo/docs/release
 # Afegir a tots els usuaris (inclosos iddigital) als grups necesaris
 # ====================================================================
 
-# 'magicament' el meu usuari g.falcoperez esta afegit al grup docker
-#cat << EOF > /etc/security/group.conf
-#*;*;*;Al;ubridge,libvirt,kvm,wireshark,docker,sudo,adm
-#EOF
+cat << EOF > /etc/security/group.conf
+*;*;*;Al;ubridge,libvirt,kvm,wireshark,docker
+EOF
+
+cat << EOF > /etc/pam.d/common-auth
+auth	[success=2 default=ignore]	pam_unix.so nullok
+auth	[success=1 default=ignore]	pam_sss.so use_first_pass
+auth	requisite			pam_deny.so
+auth	required			pam_permit.so
+auth	optional			pam_cap.so 
+auth	optional			pam_group.so
+EOF
+
+chattr +i /etc/pam.d/common-auth
 
 
 # ====================================================================
