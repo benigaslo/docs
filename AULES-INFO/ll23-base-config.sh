@@ -58,6 +58,7 @@ auth	optional			pam_cap.so
 auth	optional			pam_group.so
 EOF
 
+# Previndre que pam-auth-update actualitze l'arxiu, marcant l'arxiu com immutable 
 chattr +i /etc/pam.d/common-auth
 
 
